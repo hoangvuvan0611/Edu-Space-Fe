@@ -1,0 +1,79 @@
+.SiteBar{
+    position: fixed;
+    width: 13%;
+    height: 100%;
+    margin: 10px 0;
+    -moz-user-select: none !important;
+    -webkit-touch-callout: none!important;
+    -webkit-user-select: none!important;
+    -khtml-user-select: none!important;
+    -moz-user-select: none!important;
+    -ms-user-select: none!important;
+    user-select: none!important;
+}
+.SiteBar-top{
+    margin-bottom: 10px 0;
+    color: #ffff;
+}
+.SiteBar-top #icon_list_box{
+    margin-right: 10px;
+    font-size: 20px;
+}
+.SiteBar-center{
+    background-color: rgba(255, 255, 255, .40);
+    border-radius: 0.7em;
+    height: 90%;
+    position: relative;
+}
+.SiteBar-center ul{
+    margin: 0;
+    padding: 10px 0;
+}
+.SiteBar-center ul li{
+    padding: 10px;
+    list-style: none;
+    text-align: start;
+    margin: 15px 0;
+    color: #ffff;
+    text-transform: capitalize;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+}
+.SiteBar-center ul li:hover{
+    background-color: rgba(52, 52, 52, 0.611);
+}
+
+.SiteBar .SiteBar_list #active{
+    background-color: #008888;
+}
+
+.SiteBar .SiteBar-center .SiteBar-center_row{
+    justify-content: start;
+    flex-direction: row;
+    display: flex;
+}
+.SiteBar .SiteBar-center .SiteBar_list Link{
+    text-decoration: none !important;
+    color: #ffff;
+}
+
+.SiteBar .SiteBar-center .SiteBar-center_row #icon{
+    flex: 15%;
+}
+.SiteBar .SiteBar-center .SiteBar-center_row #title{
+    flex: 90%;
+}
+.SiteBar-center .SiteBar-center_control{
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    font-size: 20px;
+    transform: translate(0, -50%);
+    transition: all 0.4s ease-in;
+    opacity: 0;
+}
+.SiteBar-center:hover .SiteBar-center_control{
+    opacity: 1;
+}

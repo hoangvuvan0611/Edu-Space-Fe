@@ -1,0 +1,26 @@
+.home{
+    /* background-image: url('../data/image/backgroundhome/Aesthetic-3840x2160-Background.jpg'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    transition: all 0.5s ease-in-out;
+    height: 100%;
+}
+
+.home .home-left{
+    width: 14%;
+    display: inline-block;
+    overflow: initial;
+    height: 100vh;
+
+}
+.home .home-right{
+    width: 86%;
+    padding: 1% 0.5% 5% 0.5%;
+    display: block;
+}
+
+@media screen and (max-width: 1400px){
+    
+}

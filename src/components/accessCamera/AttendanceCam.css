@@ -1,0 +1,143 @@
+.box_cam_img{
+    margin-top: 10px;
+}
+
+.box_cam video{
+    border-radius: 5px;
+    box-shadow: 0 1px 7px 0.8px;
+    z-index: 99;
+}
+
+.show_data_qr{
+    display: flex;
+    justify-content: space-between;
+}
+
+.show_data_qr .data_left div{
+    /* color:#0000; */
+    font-weight: 600;
+    text-align: start;
+}
+
+.box_cam{
+    position: relative;
+    width: 100%;
+}
+
+.box_show_info{
+    border-radius: 5px;
+    box-shadow: 0 1px 7px 0.8px;
+    z-index: 99;
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+}
+
+.box_show_info h4{
+    text-transform: capitalize;
+    margin: 20px 0;
+}
+
+.box_show_info img{
+    width: 20vh;
+    height: 20vh;
+    margin-top: 20px;
+}
+
+.box_show_info p{
+    color: red;
+    margin: 20px 0;
+}
+
+.container_circles{
+    position: absolute;
+    display: block;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, -50%);
+}
+
+.container_circles .outer_circle{
+    width: 60px;
+    height: 60px;
+    background-color: hsla(0,0%,100%,.4);
+    border-radius: 50%;
+    box-shadow: 0 0 2px 0.1px;
+}
+.outer_circle .inner_circle{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    background-color: #ffff;
+    border-radius: 50%;
+}
+
+.btn_control{
+    margin: 20px 0;
+}
+
+.btn_control .btn{
+    margin: 10px 10px;
+    width: 20%;
+}
+
+@media(max-width:768px){
+    .btn_control .btn{
+        width: 40%;
+    }
+}
+
+.box_focus_face{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#box_focus_face_top_left{
+    height: 30%;
+    width: 30%;
+    border-top: 3px solid greenyellow;
+    border-left: 3px solid greenyellow;
+    border-top-left-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#box_focus_face_top_right{
+    height: 30%;
+    width: 30%;
+    border-top: 3px solid greenyellow;
+    border-right: 3px solid greenyellow;
+    border-top-right-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#box_focus_face_bottom_left{
+    height: 30%;
+    width: 30%;
+    border-bottom: 3px solid greenyellow;
+    border-left: 3px solid greenyellow;
+    border-bottom-left-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+#box_focus_face_bottom_right{
+    height: 30%;
+    width: 30%;
+    border-bottom: 3px solid greenyellow;
+    border-right: 3px solid greenyellow;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

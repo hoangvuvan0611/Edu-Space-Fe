@@ -1,0 +1,54 @@
+.img_qr_code{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 0 4px 0.8px rgb(145, 144, 144);
+    padding: 2%;
+    z-index: 99;
+    border-radius: 5px;
+}
+
+.icon_control_box{
+    justify-content: space-around;
+}
+
+.icon_qr_exit{
+    position: absolute;
+    padding: 0 10px;
+    font-size: 150%;
+    top: 0.5%;
+    right: 0.5%;
+    border-radius: 3px;
+    color: rgb(139, 139, 139);
+}
+
+.icon_qr_exit:hover{
+    color: black;
+}
+
+.icon_qr_download{
+    margin: 5px;
+    border-radius: 3px;
+    color: rgb(139, 139, 139);
+}
+
+.icon_qr_download:hover{
+    color: black;
+}
+
+.box_information_qr_show{
+    /* display: inline-block; */
+    margin-top: 5px;
+}
+
+.information_qr_show{
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+}
+.information_qr_show span{
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.571);
+}

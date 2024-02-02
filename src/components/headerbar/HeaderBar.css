@@ -1,0 +1,127 @@
+.headerBar{
+    background-color: transparent;
+    position: relative;
+    margin-bottom: 0px;
+    align-items: center;
+}
+.headerBar .headerBar_clock{
+    position: absolute;
+    top: 50%;
+    left: 51.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 2px 10px;
+    margin: 0;
+    transition: all 0.3s ease-in;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+.fc-event{
+    background-color: #fff;
+}
+
+.headerBar .headerBar_clock #headerBar_clock{
+    color: #ffff;
+    font-size: 30px;
+    margin-right: 18px;
+}
+.headerBar .headerBar_clock #headerBar_fa_clock{
+    position: absolute;
+    right: 2%;
+    top: 50%;
+    transform: translate(0, -50%);
+    color: #fff;
+}
+
+.headerBar .headerBar_clock:hover{
+    background-color: rgba(255, 255, 255, .35);
+}
+
+
+.headerBar .headerBar_search #headerBar_search{
+    background-color: rgba(255, 255, 255, .35);
+    border: none;
+    outline-color: transparent;
+    outline: none;
+    padding: 7px 14px;
+    border-radius: 10px;
+    color: #fff;
+    align-items: center;    
+    font-size: 13px;
+    width: 100%;
+    transition-property: width, translate !important;
+    transition: all 0.4s ease-in;
+}
+    
+.headerBar .headerBar_search #headerBar_search::placeholder{
+    color: #ffffff92;
+    font-size: 13px;
+    text-transform: lowercase;
+    align-items: center;
+    line-height: 15px;
+}
+.headerBar .headerBar_search #headerBar_search:focus{
+    width: 200%;
+    background-color: rgba(255, 255, 255, 1);
+    color: rgba(0, 0, 0, 0.763);
+}
+
+.headerBar .headerBar_search #headerBar_search:focus::placeholder{
+    color: rgba(0, 0, 0, 0.533);
+}
+
+.headerBar .headerBar_user{
+    position: relative;
+    border-radius: 10px;
+    transition: all 0.3s ease-in;
+    padding: 6px 10px;
+    cursor: pointer;
+    align-items: center;
+    position: relative;
+}
+.headerBar .headerBar_user:hover{
+    background-color: rgba(255, 255, 255, .35);
+}
+.headerBar .headerBar_user .headerBar_user_avt{
+    background-image: url("../../data/image/icone.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 38px;
+    min-width: 38px;
+    border-radius: 50%;
+    margin-right: 15px;
+    vertical-align: middle;
+    border: 1px solid #0000;
+    display: inline-block;
+}
+.headerBar .headerBar_user .headerBar_user_name{
+    display: inline-block;
+    font-size: 14px;
+    height: 20px;
+    font-weight: var(--ui-font-weight-bold);
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+    max-width: 220px;
+    font-weight: 600;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.headerBar .headerBar_user .headerBar_user_icon{
+    color: #fff;
+    font-weight: 700;
+    width: 33px;
+    height: 33px;
+    padding: 5px;
+    border-radius:50%;
+}
+.headerBar .headerBar_user .headerBar_user_icon:hover{
+    transform: scale(1.2);
+    font-weight: 700 !important;
+}
