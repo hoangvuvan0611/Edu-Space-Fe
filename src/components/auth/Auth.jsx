@@ -5,8 +5,10 @@ import api from '../../api/axiosConfig';
 import { Link } from 'react-router-dom';
 import { FaFacebookF, FaGithub, FaGooglePlusG, FaLinkedinIn } from "react-icons/fa";
 
+import { ToastClassName, ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Auth() {
-  const auth = document.getElementById('auth');
   const [isActive, setIsActive] = useState(false);
 
   const activeRegister = () => {
@@ -19,43 +21,49 @@ function Auth() {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [lbUserName, setLbUserName] = useState('');
-  const [lbEmail, setLbEmail] = useState('');
-  const [lbPassword, setLbPassword] = useState('');
 
   const validateUserInf = () => {
     if(userName.length < 1){
-      setLbUserName("Tên người dùng không được để trống!")
+      toast.warning("Tên không được để trống!", {
+        icon: "⚠️"
+      });
       return;
     }
-    setLbUserName("");
     
     let regexEmail = new RegExp("^[0-9a-zA-Z]+\\w+@\\w+(\\.\\w+)*(\\.[a-zA-Z]{2,6})$");
     if(!regexEmail.test(email)){
-      setLbEmail("Email không đúng định dạng!")
+      toast.warning("Email không đúng định dạng!", {
+        icon: "⚠️"
+      });      
       return;
     }
-    setLbEmail("");
 
     if(password.length < 8){
-      setLbPassword("Mật khẩu phải có ít nhất 8 ký tự!")
+      toast.warning("Mật khẩu phải có ít nhất 8 ký tự!", {
+        icon: "⚠️"
+      });
       return;
     }
-    setLbPassword("");
     return true;
   }
 
   const registerUser = async() => {
+  
     if(validateUserInf()){
       let response = await api.post("/api/v1/auth/register", {userName: userName, email: email, password: password});
-      if(response.data.success)
-        alert("Thanh cong");
+      if(response.data.success){
+        toast.success("Đăng ký thành công!", {
+          icon: "✅"
+        });
+      }
     }
-    
   }
 
   return (
     <div className='auth'>
+      <ToastContainer 
+        icon={true} 
+      />
       <div className={isActive ? 'auth_container active' : 'auth_container'} id='container'>
         <div className='form-container sign-up'>
           <form>
@@ -67,18 +75,9 @@ function Auth() {
               <Link to={"#"}><FaLinkedinIn/></Link>
             </div>
             <span>hoặc sử dụng email để đăng ký</span>
-            <p>
-              <label>{lbUserName}</label>
               <input type="text" autoComplete="section-blue shipping name" value={userName} onInput={e => setUserName(e.target.value)} id="registerUserName" placeholder='username'/>
-            </p>
-            <p>
-              <label>{lbEmail}</label>
               <input type="email" autoComplete="section-blue shipping email" value={email} onInput={e => setEmail(e.target.value)} id="registerEmail" placeholder='email'/>
-            </p>
-            <p>
-              <label>{lbPassword}</label>
               <input type="password" autoComplete="section-blue shipping new-password" value={password} onInput={e => setPassword(e.target.value)} id="registerPassword" placeholder='password'/>
-            </p>
             <button type='button' onClick={registerUser}>Đăng ký</button>
           </form>
         </div>
