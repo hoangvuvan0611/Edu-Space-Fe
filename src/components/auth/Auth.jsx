@@ -50,7 +50,7 @@ function Auth() {
   const registerUser = async() => {
   
     if(validateUserInf()){
-      let response = await api.post("/api/v1/auth/register", {userName: userName, email: email, password: password});
+      let response = await api.post("/api/v1/core/user/register", {userName: userName, email: email, password: password});
       if(response.data.success){
         toast.success("Đăng ký thành công!", {
           icon: "✅"

@@ -11,13 +11,11 @@ function SiteBar(){
     return(
         <div className="SiteBar">
             <div className="SiteBar-top">
-                <h4>
-                    <FaListAlt id='icon_list_box' title='Thu nhỏ thanh công cụ'/>
-                    <Link to={"/home"} style={{textDecoration: 'none'}}>
-                        <span style={{color: 'white'}}>W24 </span>
-                        <span style={{color: 'red'}}>SPACE</span>
-                    </Link>
-                </h4>
+                <FaListAlt id='icon_list_box' title='Thu nhỏ thanh công cụ'/>
+                <Link className="title" to={"/home"} style={{textDecoration: 'none'}}>
+                    <p style={{color: 'white'}}>W24 </p>
+                    <p style={{color: 'red'}}>SPACE</p>
+                </Link>
             </div>
             <div className="SiteBar-center">
                 <ul className="SiteBar_list">
@@ -29,12 +27,12 @@ function SiteBar(){
                                     id={window.location.pathname == val.link ? "active" : ""}
                                      
                                     className="SiteBar-center_row task_calendar_box">
-                                        <div  id="icon">
-                                            {val.icon}
-                                        </div>
-                                        <div id="title">
-                                            {val.title}
-                                        </div>
+                                    <div className="Site_bar_icon">
+                                        {val.icon}
+                                    </div>
+                                    <p className="Site_bar_title_sub">
+                                        {val.title}
+                                    </p>
                                 </li>
                             </Link> 
                         )

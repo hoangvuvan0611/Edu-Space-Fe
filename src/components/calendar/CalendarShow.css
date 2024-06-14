@@ -15,14 +15,14 @@
   --fc-button-bg-color: #ffffffe1;
   --fc-button-border-color: none;
   --fc-button-hover-bg-color: #4c4c4c;
-  --fc-button-hover-border-color: #1a252f;
+  --fc-button-hover-border-color: #fff;
   --fc-button-active-bg-color: #baf375;
-  --fc-button-active-border-color: #151e27;
+  --fc-button-active-border-color: #fff;
 
   --fc-event-bg-color: #3788d8;
   --fc-event-border-color: #3788d8;
   --fc-event-text-color: #fff;
-  --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
+  --fc-event-selected-overlay-color: #fff;
 
   --fc-more-link-bg-color: #d0d0d0;
   --fc-more-link-text-color: inherit;
@@ -38,6 +38,7 @@
   /* --fc-today-bg-color: rgba(41, 41, 41, 0.287); */
   --fc-now-indicator-color: yellow;  
 }
+
 .fc-header-toolbar{
   background-color: transparent;
   padding: 10px 0;
@@ -58,7 +59,7 @@
 }
 .fc-header-toolbar .fc-toolbar-chunk .fc-button-group .fc-button:hover{
   color: #fff;
-  background-color: #9d8b17;
+  background-color: #008888;
 }
 .fc-header-toolbar .fc-toolbar-chunk .fc-today-button{
   font-size: 0.8em !important;

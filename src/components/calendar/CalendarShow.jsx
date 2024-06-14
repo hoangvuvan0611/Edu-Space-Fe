@@ -85,14 +85,12 @@ function CalendarShow() {
       newEvents.push(event);
     }
     setEvents(newEvents);
-    console.log(events)
   }
 
   useEffect(() => {
     getDataSchedule();
   }, [])
 
-  
   const saveEvent = () => {
     if(startTime == null && endTime == null){
       setStartTime(new Date())
@@ -134,13 +132,26 @@ function CalendarShow() {
   return (
     <div className="calendar">
       <FullCalendar
-        data-bs-toggle="collapse" href="#collapseCalendarEvent" role="button" aria-expanded="false" aria-controls="collapseCalendarEvent"
+        data-bs-toggle="collapse" 
+        href="#collapseCalendarEvent" 
+        role="button" 
+        aria-expanded="false" 
+        aria-controls="collapseCalendarEvent"
+
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
         initialView="timeGridWeek"
         // initialView="basicWeek"
         headerToolbar={{
           center: 'title',
-          left: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
+          left: "dayGridMonth,timeGridWeek,timeGridDay,listWeek",
+        }}
+
+        buttonText={{
+          today: 'Hôm nay',
+          month: 'Tháng',
+          week: 'Tuần',
+          day: 'Ngày',
+          list: 'Danh sách'
         }}
         
         eventColor="#008888"
@@ -158,7 +169,7 @@ function CalendarShow() {
         slotMaxTime={'24:00:00'}
 
         //Locale
-        locales={"all"}
+        locales={"vi"}
         weekNumberCalculation={'ISO'}
         timeZone={"local"}
 
