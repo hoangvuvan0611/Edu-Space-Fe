@@ -32,13 +32,13 @@ const WebcamAttendance = ({latitude, longitude}) => {
   };
   
   const submitData = async() => {
-    // try {
-    //   const response = await api.post("/api/v1/qr/distance", {latitude: latitude, longitude: longitude});
-    //   console.log(response.data);
-    //   setDistance(response.data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const response = await api.post("/api/v1/qr/distance", {latitude: latitude, longitude: longitude});
+      console.log("response" + response.data);
+      setDistance(response.data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const startCamera = () =>{
@@ -48,8 +48,6 @@ const WebcamAttendance = ({latitude, longitude}) => {
   }
 
   const capture = (() => {
-    
-    
     const faceInterval = setInterval(() => {
       const pictureSrc = webcamRef.current.getScreenshot();
       
@@ -84,7 +82,6 @@ const WebcamAttendance = ({latitude, longitude}) => {
   });
 
   useEffect(() => {
-
     if(window.innerWidth > 768)
         setSizeWindow(400);
     else

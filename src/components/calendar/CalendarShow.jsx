@@ -61,7 +61,7 @@ function CalendarShow() {
 
   const getDataSchedule = async() => {
     try{
-      let response = await api.get("/api/v1/core/meeting/teacherId=6656485");
+      let response = await api.get("/api/v1/core/meeting/teacherCode=6656485");
       setupDataSchedule(response.data);
     }catch(error){
       console.log(error);
@@ -78,7 +78,7 @@ function CalendarShow() {
       
       let event = {
         id: data.id,
-        title: data.subjectName,
+        title: data.subjectName + " , " + data.roomName,
         start: startT,
         end: endT
       };

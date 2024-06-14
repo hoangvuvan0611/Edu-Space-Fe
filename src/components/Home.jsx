@@ -14,8 +14,6 @@ import vaporwareForest from "../data/image/backgroundhome/wallpapersden.com_vapo
 import { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
 
-
-
 function Home(){
 
     const [styleBackground, setStyleBackground] = useState(finalNight)
@@ -38,7 +36,7 @@ function Home(){
         }, 100);
     }, []);
     return(
-        <div className="home d-flex container-fluid" style={{backgroundImage: `url(${risingSunAtMountain})`}}>
+        <div className="home d-flex container-fluid" style={{backgroundImage: `url(${finalNight})`}}>
                 <div className="home-left">
                     <Sitebar/>
                 </div>
