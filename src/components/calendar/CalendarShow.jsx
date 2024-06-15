@@ -5,6 +5,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from '@fullcalendar/list';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Cookies from 'js-cookie';
 
 import { FaXmark } from "react-icons/fa6";
 
@@ -14,8 +15,7 @@ import './CalendarShow.css';
 import QRCodes from "../qrcode/QRCode";
 import api from '../../api/axiosConfig';
 
-const event1 = [
-  ];
+const event1 = [];
 
 function CalendarShow() {
 
@@ -61,14 +61,18 @@ function CalendarShow() {
 
   const getDataSchedule = async() => {
     try{
-      let response = await api.get("/api/v1/core/meeting/teacherCode=6656485");
-      setupDataSchedule(response.data);
+      let response = await api.get("/api/v1/core/meeting/teacherCode=6656485", {
+        headers: {
+          Authorization: `Bearer ${Cookies.get('token')}`
+        }
+      });
+      await setupDataSchedule(response.data);
     }catch(error){
       console.log(error);
     }
   }
 
-  const setupDataSchedule = (response) => {
+  const setupDataSchedule = async (response) => {
     let newEvents = [...events];
     for(let i=0; i< response.data.items.length; i++){
       let data = response.data.items[i];

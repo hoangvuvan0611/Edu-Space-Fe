@@ -14,15 +14,15 @@ import vaporwareForest from "../data/image/backgroundhome/wallpapersden.com_vapo
 import { useState, useEffect } from "react";
 import { Routes, Route } from 'react-router-dom';
 
-function Home(){
+function Home({setLoggedIn}){
 
     const [styleBackground, setStyleBackground] = useState(() => {
         let date = new Date();
-        if(date.getHours() < 5 || date.getHours() > 19)
+        if(date.getHours() < 5 || date.getHours() > 18)
             return finalNight;
         else if(date.getHours() >= 5 && date.getHours() <= 6)
             return morning;
-        else if(date.getHours() >= 17)
+        else if(date.getHours() >= 15)
             return afternoon;
         else
             return dayTime;
@@ -30,11 +30,11 @@ function Home(){
     
     const setBackgroundImage = () => {
         let date = new Date();
-        if(date.getHours() < 5 || date.getHours() > 19)
+        if(date.getHours() < 5 || date.getHours() > 18)
             setStyleBackground(finalNight);
         else if(date.getHours() >= 5 && date.getHours() <= 6)
             setStyleBackground(morning);
-        else if(date.getHours() >= 17)
+        else if(date.getHours() >= 15)
             setStyleBackground(afternoon);
         else
             setStyleBackground(dayTime);
@@ -53,7 +53,7 @@ function Home(){
                 <Sitebar/>
             </div>
             <div className="home-right">
-                <HeaderBar/>
+                <HeaderBar setLoggedIn={setLoggedIn}/>
                 <Routes>    
                     <Route path='/schedule' element={<Calendar/>}/>  
                 </Routes>

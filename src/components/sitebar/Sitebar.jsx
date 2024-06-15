@@ -21,7 +21,7 @@ function SiteBar(){
                 <ul className="SiteBar_list">
                     {SitebarData.map((val, key) => {
                         return(
-                            <Link style={{textDecoration: 'none'}} to={val.link} onClick={() => {navigate.pathname = val.link}}>
+                            <Link key={key} style={{textDecoration: 'none'}} to={val.link} onClick={() => {navigate.pathname = val.link}}>
                                 <li 
                                     key={key} 
                                     id={window.location.pathname == val.link ? "active" : ""}

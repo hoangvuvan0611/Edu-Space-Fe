@@ -2,12 +2,12 @@ import './HeaderBar.css';
 import {useState, useEffect} from "react";
 import { FaBell } from "react-icons/fa";
 import { LuLogOut } from "react-icons/lu";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
+import Cookies from 'js-cookie';
 
-function HeaderBar(){
+function HeaderBar({ setLoggedIn }){
+    const navigate = useNavigate();
     const [date, setDate] = useState(new Date());
-
-
 
     useEffect(() => {
         setInterval(() => {
@@ -16,6 +16,21 @@ function HeaderBar(){
         }, 1000);
         // TODO: still need to cleanup the side effect
     }, []);
+
+    const logout = () => {
+        // Xóa token khi đăng xuất
+        Cookies.remove('token');
+        Cookies.remove('refreshToken');
+        setLoggedIn(false);
+        navigate('/auth'); // Chuyển hướng về trang đăng nhập sau khi đăng xuất
+
+        // Chặn việc đẵ đăng xuất nhưng ấn quay trở lại 
+        window.history.pushState(null, document.title, window.location.href);
+        window.addEventListener('popstate', function(event) {
+          window.history.pushState(null, document.title, window.location.href);
+        });
+    };
+    
     return(
         <div className="headerBar justify-content-between d-flex">
             <div className='headerBar_search'>
@@ -36,9 +51,9 @@ function HeaderBar(){
                 <span className='headerBar_user_name'>
                     Vũ Văn Hoàng
                 </span>
-                <Link to={"/auth"} className='headerBar_user_icon'>
+                <div onClick={logout} className='headerBar_user_icon'>
                     <LuLogOut title='Đăng suất'/>   
-                </Link>
+                </div>
             </div>
         </div>
     )
