@@ -26,10 +26,11 @@ function Auth({ setLoggedIn }) {
   const [password, setPassword] = useState('');
 
   const validateUserInf = () => {
-    if(userName.length < 1){
+    if(userName.trim().length < 1){
       toast.warning("Tên người dùng không được để trống!", {
         icon: "⚠️"
       });
+      setUserName("");
       return;
     }
     
@@ -41,7 +42,7 @@ function Auth({ setLoggedIn }) {
       return;
     }
 
-    if(password.length < 8){
+    if(password.trim().length < 8){
       toast.warning("Mật khẩu phải có ít nhất 8 ký tự!", {
         icon: "⚠️"
       });
@@ -52,7 +53,7 @@ function Auth({ setLoggedIn }) {
 
   const registerUser = async() => {
     if(validateUserInf()) {
-      let response = await api.post("/api/v1/auth/register", {userName: userName, email: email, password: password});
+      let response = await api.post("/api/v1/auth/register", {username: userName, email: email, password: password});
       if(response.data.status==201){
         setUserName("");
         setEmail("");
@@ -76,6 +77,22 @@ function Auth({ setLoggedIn }) {
   }
 
   const login = async () => {
+
+    if(userName.trim().length < 1){
+      toast.warning("Tên đăng nhập không được để trống!", {
+        icon: "⚠️"
+      });
+      setUserName("");
+      return;
+    }
+
+    if(password.trim().length < 1){
+      toast.warning("Mật khẩu không được để trống", {
+        icon: "⚠️"
+      });
+      return;
+    }
+
     try {
       const response = await api.post('/api/v1/auth/login', {
         userName,
